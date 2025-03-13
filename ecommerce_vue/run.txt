@@ -1,0 +1,8 @@
+# Running Django Backend - Admin Site
+cd ecommerce_django
+.\environment_3_8_2\Scripts\activate
+python manage.py runserver
+
+# Running Vue.js Frontend
+cd ecommerce_vue
+npm run serve
