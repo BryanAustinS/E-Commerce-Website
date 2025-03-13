@@ -1,8 +1,15 @@
 # Running Django Backend - Admin Site
-cd ecommerce_django
 .\environment_3_8_2\Scripts\activate
+cd ecommerce_django
 python manage.py runserver
+http://127.0.0.1:8000/admin/
 
 # Running Vue.js Frontend
 cd ecommerce_vue
 npm run serve
+
+# Migrate database
+.\environment_3_8_2\Scripts\activate
+cd ecommerce_django
+python manage.py makemigrations
+python manage.py migrate
