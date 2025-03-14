@@ -24,3 +24,12 @@ When creating new API Endpoint
 -- Frontend
 5. Create new Vue page that outputs the page (create the HTML template and JS Script)
 6. Add the page into router/index.js
+
+Creating Add feature
+-- Backend
+1. Add new API View in views.py using function search
+2. Add the URL in urls.py
+-- Frontend
+3. Create the Search bar UI in App.Vue
+4. Create the Search Result UI in Search.Vue
+5. Add the URL in router/index.js
