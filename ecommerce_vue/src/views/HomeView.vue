@@ -48,10 +48,14 @@ export default {
   },
   mounted() {
     this.getLatestProducts()
+    document.title =  'Home - Ecommerce'
+
   }, 
   methods: {
-    getLatestProducts() {
-      axios
+    async getLatestProducts() {
+      this.$store.commit('setIsLoading', true)
+
+      await axios
       .get('/api/v1/latest-products/')
       .then(response => {
         this.latestProducts = response.data
@@ -59,6 +63,9 @@ export default {
       .catch(error =>
         console.error(error)
       )
+
+      this.$store.commit('setIsLoading', false) 
+
     }
   }
 }
