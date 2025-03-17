@@ -14,22 +14,3 @@ cd ecommerce_django
 python manage.py makemigrations
 python manage.py migrate
 
-Notes:
-When creating new API Endpoint
---Backend
-1. Create model in model.py (create the DB model)
-2. Create serializer in serializer.py (convert the DB result into JSON so that it can be used in JS)
-3. Create View in views.py 
-4. Add the URL in url.py
--- Frontend
-5. Create new Vue page that outputs the page (create the HTML template and JS Script)
-6. Add the page into router/index.js
-
-Creating Add feature
--- Backend
-1. Add new API View in views.py using function search
-2. Add the URL in urls.py
--- Frontend
-3. Create the Search bar UI in App.Vue
-4. Create the Search Result UI in Search.Vue
-5. Add the URL in router/index.js
