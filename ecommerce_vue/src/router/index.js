@@ -7,6 +7,7 @@ import Cart from '../views/Cart.vue'
 import SignUp from '../views/SignUp.vue'
 import LogIn from '../views/LogIn.vue'
 import MyAccount from '../views/MyAccount.vue'
+import Checkout from '../views/Checkout.vue'
 import store from '@/store'
 
 const routes = [
@@ -60,7 +61,15 @@ const routes = [
     meta: {
       requiresLogin: true
     }
-  }
+  },
+  {
+    path: '/cart/checkout',
+    name: 'Checkout',
+    component: Checkout,
+    meta: {
+      requiresLogin: true
+    }
+  },
 ]
 
 const router = createRouter({
