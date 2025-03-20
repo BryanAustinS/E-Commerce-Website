@@ -136,7 +136,7 @@ export default {
         address: "",
         zipcode: "",
         place: "",
-        errors: ""
+        errors: []
         }
     },
     mounted() {
@@ -171,7 +171,55 @@ export default {
             if (this.place === "") {
                 this.errors.push("Place is required")
             }
-        }
+            if (!this.errors.length) {
+                this.$store.commit('setIsLoading', true)
+        
+                // Create order items from cart
+                const items = this.cart.items.map(item => ({
+                    product: item.product.id,
+                    price: item.product.price,
+                    quantity: item.quantity
+                }))
+                
+                // Create the order
+                const orderData = {
+                    first_name: this.first_name,
+                    last_name: this.last_name,
+                    email: this.email,
+                    phone: this.phone,
+                    address: this.address,
+                    zipcode: this.zipcode,
+                    place: this.place,
+                    items: items
+                }
+                
+                axios.post('/api/v1/checkout/', orderData)
+                    .then(response => {
+                        this.orderId = response.data.id
+                        this.initiatePayPal(this.orderId)
+                    })
+                    .catch(error => {
+                        if (error.response) {
+                            for (const property in error.response.data) {
+                                this.errors.push(`${property}: ${error.response.data[property]}`)
+                            }
+                        } else {
+                            this.errors.push('Something went wrong. Please try again!')
+                        }
+                        this.$store.commit('setIsLoading', false)
+                    })
+                    }
+        },
+        initiatePayPal(orderId) {
+            axios.post('/api/v1/paypal-create-payment/', { order_id: orderId })
+                .then(response => {
+                    window.location.href = response.data.approval_url
+                })
+                .catch(error => {
+                    this.errors.push('Payment processing error. Please try again.')
+                    this.$store.commit('setIsLoading', false)
+        })
+}
 
     },
     computed: {

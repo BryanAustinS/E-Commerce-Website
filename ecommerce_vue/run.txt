@@ -14,3 +14,6 @@ cd ecommerce_django
 python manage.py makemigrations
 python manage.py migrate
 
+# Account Username Password
+guest
+guestpassword

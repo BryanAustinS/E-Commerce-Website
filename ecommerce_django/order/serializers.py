@@ -5,8 +5,6 @@ class OrderItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = OrderItem
         fields = (
-            'id',
-            'order',
             'product',
             'price',
             'quantity',
@@ -14,6 +12,7 @@ class OrderItemSerializer(serializers.ModelSerializer):
 
 class OrderSerializer(serializers.ModelSerializer):
     items = OrderItemSerializer(many=True)
+
     class Meta:
         model = Order
         fields = (
@@ -28,6 +27,7 @@ class OrderSerializer(serializers.ModelSerializer):
             'created_at',
             'paid_amount',
             'paypal_payment_id',
+            'items',
         )
     
     def create(self, validated_data):

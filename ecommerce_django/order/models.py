@@ -1,7 +1,10 @@
 from django.db import models
+from product.models import Product
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Order(models.Model):
+    user = models.ForeignKey(User, related_name='orders', on_delete=models.CASCADE)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     email = models.EmailField()
@@ -14,13 +17,13 @@ class Order(models.Model):
     paypal_payment_id = models.CharField(max_length=100, blank=True, null=True)
 
     class Meta: 
-        ordering = ('-created_at')
+        ordering = ['created_at',]
 
     def __str__(self):
         return f"Order {self.id}"
 
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE)
-    product = models.CharField(max_length=100)
+    product = models.ForeignKey(Product, related_name='items', on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=8, decimal_places=2)
     quantity = models.IntegerField(default=1)
