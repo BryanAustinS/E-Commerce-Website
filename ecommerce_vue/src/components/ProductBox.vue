@@ -1,17 +1,14 @@
 <template>
-    <div 
-        class="column is-3">
-        <div class="box">
-            <figure class="image mb-4">
-                <img :src="product.get_thumbnail">
-            </figure>
+    <router-link :to="product.get_absolute_url" class="product-box">
+        <figure class="product-image">
+            <img :src="product.get_thumbnail" alt="Product Image">
+        </figure>
 
-            <h3 class="is-size-4">{{ product.name }}</h3>
-            <p class="is-size-6 has-text-grey">${{ product.price }}</p>
-
-            <router-link v-bind:to="product.get_absolute_url" class="button is-dark mt-4">View Details</router-link>
+        <div class="product-details">
+            <h3 class="product-name">{{ product.name }}</h3>
+            <p class="product-price">€{{ product.price }}</p>
         </div>
-    </div>
+    </router-link>
 </template>
 
 <script>
@@ -24,9 +21,40 @@ export default {
 </script>
 
 <style scoped>
-  .image {
-    margin-top: -1.25rem;
-    margin-left: -1.25rem;
-    margin-right: -1.25rem;
-  }
+.product-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-left: 10px;
+    text-decoration: none; /* Remove underline for the link */
+    color: inherit; /* Inherit text color */
+    cursor: pointer; /* Show pointer cursor on hover */
+    transition: transform 0.2s ease; /* Add hover effect */
+}
+
+.product-box:hover {
+    transform: scale(1.02); /* Slightly enlarge the box on hover */
+}
+
+.product-image img {
+    width: 100%;
+    height: auto;
+}
+
+.product-details {
+    margin-top: 5px;
+    text-align: left;
+}
+
+.product-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.product-price {
+    font-size: 14px;
+    color: grey;
+}
 </style>

@@ -1,65 +1,119 @@
 <template>
   <div class="home">
-    <section class="hero is-medium is-dark mb-6">
-      <div class="hero-body has-text-centered">
-        <p class="title mb-6">Welcome to Ecommerce</p>
-        <p class="subtitle">The best place to shop online</p>
-      </div>
+    <section class="hero is-small">
+      <figure class="image hero-image">
+        <img src="@/assets/hero_bg2.jpg" alt="Hero Background">
+        <div class="hero-text">
+          <p class="subtitle is-size-3">Welcome to</p>
+          <p class="title is-size-1">Die Mode</p>
+        </div>
+      </figure>
     </section>
 
-    <div class="columns is-multiline">
+    <div class="columns is-multiline mt-6">
       <div class="column is-12">
-        <h2 class="is-size-2 has-text-centered">Latest Products</h2>
+        <h2 class="is-size-2 has-text-left has-text-black">Latest Products</h2>
       </div>
 
-      <ProductBox
-        v-for="product in latestProducts"
-        v-bind:key="product.id"
-        v-bind:product="product"
-        class="column is-3"
-      ></ProductBox>
+      <div class="product-row">
+        <ProductBox
+          v-for="product in latestProducts"
+          v-bind:key="product.id"
+          v-bind:product="product"
+          class="product-box"
+        ></ProductBox>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import axios from 'axios'
-import ProductBox from '@/components/ProductBox.vue'
+import axios from 'axios';
+import ProductBox from '@/components/ProductBox.vue';
 
 export default {
   name: 'HomeView',
   data() {
     return {
       latestProducts: []
-    }
+    };
   },
   components: {
     ProductBox,
   },
   mounted() {
-    this.getLatestProducts()
-    document.title =  'Home - Ecommerce'
-
-  }, 
+    this.getLatestProducts();
+    document.title = 'Home - Ecommerce';
+  },
   methods: {
     async getLatestProducts() {
-      this.$store.commit('setIsLoading', true)
+      this.$store.commit('setIsLoading', true);
 
       await axios
-      .get('/api/v1/latest-products/')
-      .then(response => {
-        this.latestProducts = response.data
-      })
-      .catch(error =>
-        console.error(error)
-      )
+        .get('/api/v1/latest-products/')
+        .then(response => {
+          this.latestProducts = response.data;
+        })
+        .catch(error => console.error(error));
 
-      this.$store.commit('setIsLoading', false) 
-
+      this.$store.commit('setIsLoading', false);
     }
   }
-}
+};
 </script>
 
+<style scoped>
+.home {
+  min-height: 1000px;
+}
 
+.hero {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-top: 0;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.hero-text .subtitle {
+  font-size: 1.5rem;
+  color: white;
+}
+
+.hero-text .title {
+  font-size: 2.5rem;
+  color: white;
+}
+
+/* Product row styling */
+.product-row {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: space-between;
+}
+
+.product-box {
+  flex: 1 1 calc(25% - 20px); 
+  max-width: calc(25% - 20px); 
+  box-sizing: border-box; 
+  margin-left: 20px;
+}
+</style>
