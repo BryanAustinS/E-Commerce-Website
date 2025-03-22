@@ -25,12 +25,14 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 100%;
+    width: 160px;
     margin-left: 10px;
     text-decoration: none; /* Remove underline for the link */
     color: inherit; /* Inherit text color */
     cursor: pointer; /* Show pointer cursor on hover */
     transition: transform 0.2s ease; /* Add hover effect */
+    margin-bottom: 30px;
+
 }
 
 .product-box:hover {
@@ -51,10 +53,11 @@ export default {
     font-size: 16px;
     font-weight: bold;
     margin-bottom: 2px;
+    color: black;
 }
 
 .product-price {
     font-size: 14px;
-    color: grey;
+    color: black;
 }
 </style>

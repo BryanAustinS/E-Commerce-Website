@@ -2,8 +2,8 @@
   <div id="wrapper" class="has-background-white">
     <nav class="navbar has-background-white">
       <div class="navbar-brand">
-        <router-link to="/summer" class="navbar-item">Summer</router-link>
-        <router-link to="/winter" class="navbar-item">Winter</router-link>
+        <router-link to="/men" class="navbar-item">MEN</router-link>
+        <router-link to="/women" class="navbar-item">WOMEN</router-link>
 
         <div class="navbar-center">
           <router-link to="/" class="navbar-item"><strong>Die Mode</strong></router-link>

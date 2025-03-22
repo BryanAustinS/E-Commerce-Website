@@ -10,7 +10,7 @@
       </figure>
     </section>
 
-    <div class="columns is-multiline mt-6">
+    <div class="columns mt-3 is-multiline">
       <div class="column is-12">
         <h2 class="is-size-2 has-text-left has-text-black">Latest Products</h2>
       </div>
@@ -66,6 +66,8 @@ export default {
 <style scoped>
 .home {
   min-height: 1000px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .hero {
