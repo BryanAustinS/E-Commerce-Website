@@ -98,11 +98,15 @@ export default {
 .hero-text .subtitle {
   font-size: 1.5rem;
   color: white;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px; 
 }
 
 .hero-text .title {
   font-size: 2.5rem;
   color: white;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px; 
 }
 
 /* Product row styling */
@@ -118,4 +122,5 @@ export default {
   box-sizing: border-box; 
   margin-left: 20px;
 }
+
 </style>

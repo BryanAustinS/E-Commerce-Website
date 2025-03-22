@@ -6,7 +6,7 @@
         <router-link to="/women" class="navbar-item">WOMEN</router-link>
 
         <div class="navbar-center">
-          <router-link to="/" class="navbar-item"><strong>Die Mode</strong></router-link>
+          <router-link to="/" class="website-name"><strong>Die Mode</strong></router-link>
         </div>
       </div>
 
@@ -194,8 +194,19 @@ body {
   text-align: center;
 }
 
-.navbar-center .navbar-item strong {
+
+.website-name strong{
+  font-family: 'Bebas Neue', sans-serif;
   color: black !important;
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+}
+ 
+.navbar .navbar-item,
+h1.title,
+h2.subtitle {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
   font-size: 1.5rem;
 }
 
