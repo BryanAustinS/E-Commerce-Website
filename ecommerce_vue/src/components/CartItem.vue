@@ -1,15 +1,15 @@
 <template>
-    <tr>
-        <td><router-link :to="item.product.get_absolute_url">{{ item.product.name }}</router-link></td>
-        <td>${{ item.product.price }}</td>
-        <td>
-            <a @click="decrementQuantity(item)">-</a>
-            {{ item.quantity }}
-            <a @click="incrementQuantity(item)">+</a>
-        </td>
-        <td>${{ getItemTotal(item).toFixed(2) }}</td>
-        <td><button class="delete" @click="removeFromCart(item)"></button></td>
-    </tr>
+        <tr>
+            <td><router-link :to="item.product.get_absolute_url">{{ item.product.name }}</router-link></td>
+            <td>${{ item.product.price }}</td>
+            <td>
+                <a @click="decrementQuantity(item)">-</a>
+                {{ item.quantity }}
+                <a @click="incrementQuantity(item)">+</a>
+            </td>
+            <td>${{ getItemTotal(item).toFixed(2) }}</td>
+            <td><button class="delete" @click="removeFromCart(item)"></button></td>
+        </tr>
 </template>
 
 <script>
@@ -52,3 +52,7 @@ export default {
     },
 }
 </script>
+
+<style scoped>
+
+</style>

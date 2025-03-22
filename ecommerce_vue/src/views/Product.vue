@@ -1,28 +1,76 @@
 <template>
     <div class="page-product">
-        <div class="columns is-multiline">
-            <div class="column is-9">
-                <figure class="image mb-6">
-                    <img v-bind:src="product.get_image">
+        <div class="columns is-vcentered">
+            <!-- Product Image -->
+            <div class="column is-half">
+                <figure class="image product-image">
+                    <img v-bind:src="product.get_image" alt="Product Image">
                 </figure>
-
-                <h1 class="title">{{ product.name }}</h1>
-
-                <p>{{ product.description }}</p>
             </div>
 
-            <div class="column is-3">
-                <h2 class="subtitle">Information</h2>
+            <!-- Info Container -->
+            <div class="info-container">
+                <div class="column">
+                    <h2 class="title has-text-black">{{ product.name }}</h2>
 
-                <p><strong>Price: </strong>${{ product.price }}</p>
+                    <p>{{ product.description }}</p>
 
-                <div class="field has-addons mt-6">
-                    <div class="control">
-                        <input type="number" class="input" min="1" v-model="quantity">
+                    <p><strong>${{ product.price }}</strong></p>
+
+                    <div class="field has-addons mt-6">
+                        <div class="control">
+                            <input type="number" class="input" min="1" v-model="quantity">
+                        </div>
+
+                        <div class="control">
+                            <a class="button is-black" @click="addToCart">Add to cart</a>
+                        </div>
                     </div>
 
-                    <div class="control">
-                        <a class="button is-dark" @click="addToCart">Add to cart</a>
+                    <div class="container mt-2">
+                        <div class="box option-box">
+                            <div class="columns is-vcentered">
+                                <div class="column is-narrow">
+                                    <span class="icon-text">
+                                        <span class="icon">
+                                            <i class="fas fa-store"></i>
+                                        </span>
+                                        <span>In-Store Pickup</span>
+                                    </span>
+                                </div>
+                                <div class="column has-text-right free">FREE</div>
+                            </div>
+                            <div class="divider"></div>
+                            <div class="columns is-vcentered">
+                                <div class="column is-narrow">
+                                    <span class="icon-text">
+                                        <span class="icon">
+                                            <i class="fas fa-truck"></i>
+                                        </span>
+                                        <span>Worldwide Shipping</span>
+                                    </span>
+                                </div>
+                                <div class="column has-text-right free">FREE</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container mt-5">
+                        <div class="box info-box">
+                            <h3 class="title is-size-4 has-text-black">Easy & Secure Payment</h3>
+                            <p>We offer secure payment options, including PayPal, so you can shop with confidence.</p>
+
+                            <h3 class="title is-size-4 has-text-black mt-4">Care Instructions</h3>
+                            <ul>
+                                <li>Machine wash cold with similar colors</li>
+                                <li>Do not bleach</li>
+                                <li>Tumble dry low or hang dry for best results</li>
+                                <li>Iron on low heat if needed</li>
+                            </ul>
+
+                            <h3 class="title is-size-4 has-text-black mt-4">Hassle-Free Returns</h3>
+                            <p>We stand by the quality of our products! If you're not completely satisfied, we offer free returns within 15 days of purchase—no questions asked.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -88,3 +136,97 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.page-product {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: start;
+    width: 100%;
+}
+
+.product-image {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.product-image img {
+    width: 100%;
+    height: auto;
+}
+
+.info-container {
+    padding-right: 20px;
+}
+
+.input {
+    background-color: white;
+    color: black;
+}
+
+p {
+    color: black;
+}
+
+p strong {
+    color: black;
+    font-size: 1.2rem;
+}
+
+.option-box {
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 15px;
+    width: 100%;
+    background-color: white;
+}
+
+.option-box:not(:last-child) {
+    border-bottom: none;
+}
+
+.icon-text {
+    display: flex;
+    align-items: center;
+    color: black;
+}
+
+.icon {
+    font-size: 1.5rem;
+    margin-right: 10px;
+    color: black;
+}
+
+.subtitle {
+    color: white;
+    font-size: 0.9rem;
+}
+
+.free {
+    color: #009a64;
+    font-weight: bold;
+}
+
+.divider {
+    border-top: 1px solid black;
+    margin-bottom: 20px;
+}
+
+.info-box {
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: white;
+}
+
+.info-box h3 {
+    margin-bottom: 10px;
+}
+
+.info-box ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    color: black;
+}
+</style>

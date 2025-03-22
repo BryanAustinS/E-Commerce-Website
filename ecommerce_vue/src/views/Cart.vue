@@ -2,10 +2,11 @@
     <div class="page-cart">
         <div class="columns is-multiline">
             <div class="column is-12">
-                <h1 class="title">Cart</h1>
+                <h1 class="title has-text-black">Cart</h1>
             </div>
 
-            <div class="column is-12 box">
+            <!-- Cart Table -->
+            <div class="column is-12 cart-table">
                 <table class="table is-fullwidth" v-if="cartTotalLength">
                     <thead>
                         <tr>
@@ -29,14 +30,15 @@
                 <p v-else>You don't have any products in your cart...</p>
             </div>
 
-            <div class="column is-12 box">
-                <h2 class="subtitle">Summary</h2>
+            <!-- Summary Table -->
+            <div class="column is-12 summary-table">
+                <h2 class="subtitle has-text-black">Summary</h2>
 
                 <strong>${{ cartTotalPrice.toFixed(2) }}</strong>, {{ cartTotalLength }} items
 
                 <hr>
 
-                <router-link to="/cart/checkout" class="button is-dark">Proceed to checkout</router-link>
+                <router-link to="/cart/checkout" class="button has-background-black">Proceed to checkout</router-link>
             </div>
         </div>
     </div>
@@ -80,3 +82,31 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.page-cart {
+    padding: 20px;
+    min-height: 500px;
+}
+
+.cart-table {
+    padding: 20px;
+    border: 1px solid #dbdbdb;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.summary-table {
+    padding: 20px;
+    border: 1px solid #dbdbdb;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+strong { 
+    color: black;
+}
+
+hr { 
+}
+</style>

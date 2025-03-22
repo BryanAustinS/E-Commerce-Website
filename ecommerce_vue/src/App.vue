@@ -237,6 +237,7 @@ export default {
 .search-input {
   background-color: white !important; 
   border: 1px solid #ddd;
+  color: black;
 
   &::placeholder {
     color: #333;

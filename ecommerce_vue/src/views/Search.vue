@@ -4,7 +4,7 @@
             <div class="column is-12">
                 <h1 class="title">Search</h1>
 
-                <h2 class="is-size-5 has-text-grey">Search term: "{{ query }}"</h2>
+                <h2 class="is-size-5 has-text-black">Search term: "{{ query }}"</h2>
             </div>
 
             <ProductBox 
@@ -58,3 +58,15 @@ export default{
 }
 
 </script>
+
+<style scoped>
+.page-search {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 30px;
+}
+
+.title{
+    color: black;
+}
+</style>

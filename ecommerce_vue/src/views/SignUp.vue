@@ -32,7 +32,7 @@
 
                     <div class="field">
                         <div class="control">
-                            <button class="button is-dark">Sign up</button>
+                            <button class="button is-black">Sign up</button>
                         </div>
                     </div>
 
@@ -114,3 +114,42 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.page-sign-up {
+    color: black;
+    height: 500px;
+    margin-top: 50px;
+}
+
+.title {
+    color: black;
+}
+
+.input {
+    background-color: white;
+    color: black; 
+    border: 1px solid #ddd; 
+}
+
+.button.is-black {
+    color: white;
+    background-color: black; 
+}
+
+label {
+    font-weight: bold;
+    color: black;
+}
+
+a {
+    color: black;
+    text-decoration: underline;
+}
+
+.notification.is-danger {
+    color: black;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+</style>

@@ -2,22 +2,22 @@
     <div class="page-my-account">
         <div class="columns is-multiline">
             <div class="column is-12">
-                <h1 class="title">My account</h1>
-            </div>
-
-            <div class="column is-12">
-                <button @click="logout()" class="button is-danger">Log out</button>
+                <h1 class="title has-text-black">My account</h1>
             </div>
 
             <hr>
 
             <div class="column is-12">
-                <h2 class="subtitle">My orders</h2>
+                <h2 class="subtitle has-text-black">My orders</h2>
 
                 <OrderSummary
                     v-for="order in orders"
                     v-bind:key="order.id"
                     v-bind:order="order" />
+            </div>
+
+            <div class="column is-12">
+                <button @click="logout()" class="button is-black">Log out</button>
             </div>
         </div>
     </div>
@@ -72,3 +72,12 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.page-my-account {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 30px;
+    min-height: 500px;
+}
+</style>

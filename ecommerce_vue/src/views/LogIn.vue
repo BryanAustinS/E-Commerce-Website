@@ -25,7 +25,7 @@
 
                     <div class="field">
                         <div class="control">
-                            <button class="button is-dark">Log In</button>
+                            <button class="button is-black">Log In</button>
                         </div>
                     </div>
 
@@ -40,10 +40,10 @@
 
 <script>
 import axios from 'axios'
-export default{
+export default {
     name: 'LogIn',
-    data(){
-        return{
+    data() {
+        return {
             username: '',
             password: '',
             errors: []
@@ -53,7 +53,7 @@ export default{
         document.title = "Log In - Ecommerce"
     },
     methods: {
-        async submitForm(){
+        async submitForm() {
             axios.defaults.headers.common['Authorization'] = '';
 
             localStorage.removeItem('token');
@@ -95,3 +95,42 @@ export default{
     }
 }
 </script>
+
+<style scoped>
+.page-log-in {
+    color: black;
+    height: 500px;
+    margin-top: 50px;
+}
+
+.title {
+    color: black;
+}
+
+.input {
+    background-color: white;
+    color: black; 
+    border: 1px solid #ddd; 
+}
+
+.button.is-black {
+    color: white;
+    background-color: black; 
+}
+
+label {
+    font-weight: bold;
+    color: black;
+}
+
+a {
+    color: black;
+    text-decoration: underline;
+}
+
+.notification.is-danger {
+    color: black;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+</style>

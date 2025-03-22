@@ -1,8 +1,6 @@
 <template>
-    <div class="box mb-4">
-        <h3 class="is-size-4 mb-6">Order #{{ order.id }}</h3>
-
-        <h4 class="is-size-5">Products</h4>
+    <div class="box mb-4 cart-box">
+        <h3 class="is-size-4 mb-4 has-text-black">Order #{{ order.id }}</h3>
 
         <table class="table is-fullwidth">
             <thead>
@@ -47,3 +45,12 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.cart-box {
+    padding: 20px;
+    border: 1px solid #dbdbdb;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+</style>
