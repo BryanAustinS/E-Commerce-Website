@@ -123,6 +123,10 @@ export default {
   display: none;
 }
 
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
 @media (max-width: 1000px) {
   .navbar-burger {
     display: block;
