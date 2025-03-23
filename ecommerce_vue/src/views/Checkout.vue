@@ -106,8 +106,11 @@
 
                 <template v-if="cartTotalLength">
                     <hr>
-
-                    <button class="button is-dark" @click="submitForm">Pay</button>
+                    <div id="paypal-button-container">
+                        <button class="paypal-button" @click="submitForm">                            
+                            <img src="@/assets/pngegg.png" alt="PayPal Logo" class="paypal-logo">
+                        </button>
+                    </div>
                 </template>
             </div>
 
@@ -237,3 +240,64 @@ export default {
 
 }
 </script>
+
+
+<style scoped>
+.page-checkout {
+    padding: 20px;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.title{
+    font-size: 2.5rem;
+    color: black;
+}
+
+.box {
+    background-color: #f9f9f9;
+    border-radius: 0;
+}
+
+label {
+    color: black;
+}
+
+input { 
+    background-color: #f9f9f9;
+    border: 1px solid #f9f9f91e;
+    color: black;
+}
+
+#paypal-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* PayPal Button Styles */
+.paypal-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffc439; /* PayPal yellow */
+    border: none;
+    border-radius: 6px; /* Rounded corners */
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
+}
+
+.paypal-button:hover {
+    background-color: #ffb347; /* Slightly darker yellow on hover */
+}
+
+/* PayPal Logo */
+.paypal-logo {
+    height: 24px; /* Adjust the height of the logo */
+    width: auto; /* Maintain aspect ratio */
+}
+    
+</style>

@@ -39,3 +39,18 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.page-success {
+    margin: 20px;
+    height: 500px;
+}
+.title {
+    font-size: 2.5rem;
+    color: black;
+}
+
+p {
+    color: black;
+}
+</style>
