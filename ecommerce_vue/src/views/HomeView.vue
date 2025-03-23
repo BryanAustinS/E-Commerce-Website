@@ -5,7 +5,7 @@
         <img src="@/assets/hero_bg2.jpg" alt="Hero Background">
         <div class="hero-text">
           <p class="subtitle is-size-3">Welcome to</p>
-          <p class="title is-size-1">Die Mode</p>
+          <p class="title is-size-1">URBANFIT</p>
         </div>
       </figure>
     </section>
@@ -123,4 +123,10 @@ export default {
   margin-left: 20px;
 }
 
+@media (max-width:800px){
+  .hero{
+    display: flex;
+    align-items: stretch;
+  }
+}
 </style>

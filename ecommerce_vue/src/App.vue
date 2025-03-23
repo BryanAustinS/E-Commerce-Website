@@ -2,15 +2,13 @@
   <div id="wrapper" class="has-background-white">
     <nav class="navbar has-background-white">
       <div class="navbar-brand">
-        <router-link to="/men" class="navbar-item">MEN</router-link>
-        <router-link to="/women" class="navbar-item">WOMEN</router-link>
-
-        <div class="navbar-center">
-          <router-link to="/" class="website-name"><strong>Die Mode</strong></router-link>
-        </div>
+        <router-link to="/men" class="navbar-item category">MEN</router-link>
+        <router-link to="/women" class="navbar-item category">WOMEN</router-link>
       </div>
 
-
+        <div class="navbar-center">
+          <router-link to="/" class="website-name"><strong>URBANFIT</strong></router-link>
+        </div>
 
       <div class="navbar-end">
         <a class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu" @click="showMobileMenu = !showMobileMenu">
@@ -128,17 +126,46 @@ body {
 }
 
 @media (max-width: 1000px) {
+  .navbar {
+    flex-wrap: wrap;
+  }
+
   .navbar-burger {
-    display: block;
-    margin-left: 10px;
+    display: block; 
+  }
+
+  .category {
+    display: flex;
+    justify-content: center;
   }
 
   .navbar-menu {
     display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    background-color: white;
   }
 
   .navbar-menu.is-active {
-    display: block;
+    display: flex; /* Show the menu when active */
+  }
+
+
+  .navbar-item {
+    width: 100%; /* Make each item take the full width */
+    text-align: left; /* Align text to the left */
+    padding: 10px 0; /* Add spacing between items */
+  }
+
+  .category{
+    text-align: center;
+  }
+
+  .search-container {
+    width: 100%; /* Ensure the search container takes full width */
+    margin-bottom: 10px; /* Add spacing below the search bar */
   }
 }
 
@@ -188,7 +215,7 @@ body {
 
 .navbar-center {
   position: absolute;
-  top: 50%;
+  top: 30px;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -270,6 +297,9 @@ h2.subtitle {
 }
 
 .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   border-bottom: black 1px solid;
 }
 
@@ -287,4 +317,5 @@ h2.subtitle {
   margin: 0;
   padding: 0;
 }
+
 </style>
