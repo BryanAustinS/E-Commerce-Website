@@ -117,10 +117,9 @@ export default {
 }
 
 .product-box {
-  flex: 1 1 calc(25% - 20px); 
-  max-width: calc(25% - 20px); 
   box-sizing: border-box; 
   margin-left: 20px;
+  width: 160px;
 }
 
 @media (max-width:800px){

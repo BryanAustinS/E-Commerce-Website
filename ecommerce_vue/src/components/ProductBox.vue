@@ -27,10 +27,10 @@ export default {
     align-items: flex-start;
     width: 160px;
     margin-left: 10px;
-    text-decoration: none; /* Remove underline for the link */
-    color: inherit; /* Inherit text color */
-    cursor: pointer; /* Show pointer cursor on hover */
-    transition: transform 0.2s ease; /* Add hover effect */
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer; 
+    transition: transform 0.2s ease;
     margin-bottom: 30px;
 
 }
