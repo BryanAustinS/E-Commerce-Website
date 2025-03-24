@@ -5,40 +5,28 @@
                 <h1 class="title">Checkout</h1>
             </div>
 
-            <div class="column is-12 box">
-                <table class="table is-fullwidth">
-                    <thead>
-                        <tr>
-                            <th>Product</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Total</th>
-                        </tr>
-                    </thead>
+            <div class="summary-container column is-12 box">
+                <h2 class="subtitle has-text-black">SUMMARY</h2>
+                <div class="summary-content">
+                    <div class="left has-text-black">
+                        <h3>Order value: </h3>
+                        <h3>Shipping fee: </h3>
+                        <div class="separator"></div>
+                        <h3>Total: </h3>
+                    </div>
 
-                    <tbody>
-                        <tr
-                            v-for="item in cart.items"
-                            :key="item.product.id">
-                                <td>{{ item.product.name }}</td>
-                                <td>${{ item.product.price }}</td>
-                                <td>{{ item.quantity }}</td>
-                                <td>${{ getItemTotal(item) }}</td>
-                        </tr>
-                    </tbody>
+                    <div class="right">
+                        <h3>${{ cartTotalPrice.toFixed(2) }}</h3>
+                        <h3>$0.00</h3>
+                        <div class="separator"></div>
+                        <h3>${{ cartTotalPrice.toFixed(2) }}</h3>
+                    </div>
+                </div>
 
-                    <tfoot>
-                        <tr>
-                            <td colspan="2">Total</td>
-                            <td>{{ cartTotalLength }}</td>
-                            <td>${{ cartTotalPrice }}</td>
-                        </tr>
-                    </tfoot>
-                </table>
             </div>
 
             <div class="column is-12 box">
-                <h2 class="subtitle">Shipping details</h2>
+                <h2 class="subtitle has-text-black">Shipping details</h2>
                 <p class="has-text-grey mb-4">* All fields are required</p>
                 
                 <div class="columns is-multiline">
@@ -98,14 +86,9 @@
                 </div>
             <div class="notification is-danger mt-4" v-if="errors.length">
                     <p v-for="error in errors" :key="error">{{ error }}</p>
-                </div>
-
-                <hr>
-
-                <div id="card-element" class="mb-5"></div>
+            </div>
 
                 <template v-if="cartTotalLength">
-                    <hr>
                     <div id="paypal-button-container">
                         <button class="paypal-button" @click="submitForm">                            
                             <img src="@/assets/pngegg.png" alt="PayPal Logo" class="paypal-logo">
@@ -143,7 +126,7 @@ export default {
         }
     },
     mounted() {
-        document.title = "Checkout - Ecommerce";
+        document.title = "Checkout - URBANFIT";
         this.cart = this.$store.state.cart;
     },
     methods: {
@@ -264,8 +247,8 @@ label {
 }
 
 input { 
-    background-color: #f9f9f9;
-    border: 1px solid #f9f9f91e;
+    background-color: white;
+    border: 0px solid #f9f9f91e;
     color: black;
 }
 
@@ -298,6 +281,38 @@ input {
 .paypal-logo {
     height: 24px; /* Adjust the height of the logo */
     width: auto; /* Maintain aspect ratio */
+}
+
+.summary-content{
+    display: flex;
+    flex-direction: row;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-right: 20px;
+    flex: 1;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-right: 20px;
+    flex: 4;
+}
+
+.right h3{
+    color: black;
+    font-weight: bold;
+}
+
+.separator{
+    border-top: 1px solid #333;
+    padding-top: 20px;
+    padding-bottom: 10px;
 }
     
 </style>

@@ -2,56 +2,57 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    cart:{
+    cart: {
       items: [],
     },
     isAuthenticated: false,
     token: '',
-    isLoading: false
+    isLoading: false,
   },
-  getters: {
-  },
-  mutations: { 
-    initializedStore(state){ // Storage in local browser
-      if (localStorageStorage.getItem('cart')){
-        state.cart = JSON.parse(localStorage.getItem('cart'))
+  getters: {},
+  mutations: {
+    initializeStore(state) {
+      // Initialize cart from localStorage
+      if (localStorage.getItem('cart')) {
+        state.cart = JSON.parse(localStorage.getItem('cart'));
       } else {
-        localStorage.setItem('cart', JSON.stringify(state.cart))
+        localStorage.setItem('cart', JSON.stringify(state.cart));
       }
 
-      if(localStorage.getItem('token')){
-        state.token = localStorage.getItem('token')
-        state.isAuthenticated = true
+      // Initialize token and authentication state from localStorage
+      if (localStorage.getItem('token')) {
+        state.token = localStorage.getItem('token');
+        state.isAuthenticated = true;
       } else {
-        state.token = ''
-        state.isAuthenticated = false
+        state.token = '';
+        state.isAuthenticated = false;
       }
     },
-    addToCart(state, item){
-      const exists = state.cart.items.filter(i => i.product.id === item.product.id)
+    addToCart(state, item) {
+      const exists = state.cart.items.filter((i) => i.product.id === item.product.id);
 
-      if (exists.length){
-        exists[0].quantity = parseInt(exists[0].quantity) + parseInt(item.quantity)
+      if (exists.length) {
+        exists[0].quantity = parseInt(exists[0].quantity) + parseInt(item.quantity);
       } else {
-        state.cart.items.push(item)
+        state.cart.items.push(item);
       }
 
-      localStorage.setItem('cart', JSON.stringify(state.cart))
+      localStorage.setItem('cart', JSON.stringify(state.cart));
     },
-    setIsLoading(state, status){
-      state.isLoading = status
+    setIsLoading(state, status) {
+      state.isLoading = status;
     },
-    setToken(state, token){
-      state.token = token
-      state.isAuthenticated = true
+    setToken(state, token) {
+      state.token = token;
+      state.isAuthenticated = true;
+      localStorage.setItem('token', token); // Persist token in localStorage
     },
-    removeToken(state){
-      state.token = ''
-      state.isAuthenticated = false
-    }
+    removeToken(state) {
+      state.token = '';
+      state.isAuthenticated = false;
+      localStorage.removeItem('token'); // Remove token from localStorage
+    },
   },
-  actions: {
-  },
-  modules: {
-  }
-})
+  actions: {},
+  modules: {},
+});

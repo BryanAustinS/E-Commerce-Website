@@ -30,7 +30,7 @@ export default{
         }
     },
     mounted(){
-        document.title = "Search - Ecommerce"
+        document.title = "Search - URBANFIT"
 
         let uri = window.location.search.substring(1)
         let params = new URLSearchParams(uri)

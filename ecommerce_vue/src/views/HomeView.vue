@@ -44,7 +44,7 @@ export default {
   },
   mounted() {
     this.getLatestProducts();
-    document.title = 'Home - Ecommerce';
+    document.title = 'Home - URBANFIT';
   },
   methods: {
     async getLatestProducts() {

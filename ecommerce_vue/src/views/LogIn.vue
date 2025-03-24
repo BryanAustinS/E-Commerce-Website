@@ -50,7 +50,7 @@ export default {
         }
     },
     mounted() {
-        document.title = "Log In - Ecommerce"
+        document.title = "Log In - URBANFIT"
     },
     methods: {
         async submitForm() {

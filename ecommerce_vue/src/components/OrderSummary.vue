@@ -1,29 +1,32 @@
 <template>
     <div class="box mb-4 cart-box">
-        <h3 class="is-size-4 mb-4 has-text-black">Order #{{ order.id }}</h3>
+        <h3 class="title is-size-6 mb-4 has-text-black">Order ID: {{ order.id }}</h3>
 
-        <table class="table is-fullwidth">
-            <thead>
-                <tr>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Total</th>
-                </tr>
-            </thead>
+        <div class="summary-container" 
+            v-for="item in order.items"
+            v-bind:key="item.product.id"
+        >
+            <div class="product-container">
+                <div class="image">
+                    <img :src="item.product.get_image" alt="Product Image">
+                </div>
 
-            <tbody>
-                <tr
-                    v-for="item in order.items"
-                    v-bind:key="item.product.id"
-                >
-                    <td>{{ item.product.name }}</td>
-                    <td>${{ item.price }}</td>
-                    <td>{{ item.quantity }}</td>
-                    <td>${{ getItemTotal(item) }}</td>
-                </tr>
-            </tbody>
-        </table>
+                <div class="info has-text-black">
+                    <div class="left">
+                        <div class="product-info">
+                            <h2>{{ item.product.name }}</h2>
+                            <p><strong>${{ item.price }}</strong></p>
+                        </div>
+                        <div class="quantity">
+                            Quantity: {{ item.quantity }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="summary-info">
+                <p class="has-text-black">Total: ${{ getItemTotal(item).toFixed(2) }}</p>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -49,8 +52,36 @@ export default {
 <style scoped>
 .cart-box {
     padding: 20px;
-    border: 1px solid #dbdbdb;
-    border-radius: 5px;
+    border-radius: 0px;
     background-color: #f9f9f9;
+}
+
+.summary-container{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.product-container{
+    display: flex;
+    flex: 3;
+}
+
+.summary-info{
+    display: flex;
+    flex: 1;
+}
+
+.image img {
+    max-height: 150px;
+    width: auto;
+}
+
+.info{
+    padding-left: 20px;
+}
+
+.info strong {
+    color: black;
 }
 </style>

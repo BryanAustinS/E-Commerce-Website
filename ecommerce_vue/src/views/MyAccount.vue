@@ -10,7 +10,9 @@
             <div class="column is-12">
                 <h2 class="subtitle has-text-black">My orders</h2>
 
-                <OrderSummary
+                <p class="has-text-grey" v-if="orders.length === 0">You have no orders yet.</p>
+
+                <OrderSummary v-else
                     v-for="order in orders"
                     v-bind:key="order.id"
                     v-bind:order="order" />
@@ -39,7 +41,7 @@ export default {
         }
     },
     mounted() {
-        document.title = 'My account | Djackets'
+        document.title = 'My account | URBANFIT'
 
         this.getMyOrders()
     },
@@ -75,9 +77,13 @@ export default {
 
 <style scoped>
 .page-my-account {
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-top: 30px;
+    padding: 20px;
     min-height: 500px;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.title {
+    font-size: 2.5rem;
 }
 </style>

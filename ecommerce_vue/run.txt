@@ -17,7 +17,3 @@ python manage.py migrate
 # Account Username Password
 guest
 guestpassword
-
-# To Do
-- After checkout summary, add button to go to homepage
-- Update the design of it and add more products

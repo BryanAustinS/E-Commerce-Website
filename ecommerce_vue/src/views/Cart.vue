@@ -76,7 +76,8 @@ export default {
 
 <style scoped>
 .title {
-    font-size: 2.5rem;}
+    font-size: 2.5rem;
+}
 .container {
     display: flex;
     width: 100%;
@@ -88,6 +89,7 @@ export default {
     min-height: 500px;
     margin-left: 15%;
     margin-right: 15%;
+    
 }
 
 .cart-table {
@@ -97,6 +99,7 @@ export default {
     padding-right: 20px;
     flex: 3;
 }
+
 
 .summary-table {
     background-color: #f9f9f9;

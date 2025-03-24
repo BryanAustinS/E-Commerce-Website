@@ -60,7 +60,7 @@ export default {
         }
     },
     mounted() {
-        document.title = 'Sign Up - Ecommerce'
+        document.title = 'Sign Up - URBANFIT'
     },  
     methods: {
         submitForm() {

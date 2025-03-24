@@ -1,5 +1,5 @@
 <template>
-    <div class="container has-text-black">
+    <div class="container">
         <div class="image">
             <img :src="item.product.get_image" alt="Product Image">
         </div>
@@ -20,7 +20,9 @@
             <div class="right">
                 <button class="delete" @click="removeFromCart(item)"></button>
             </div>
+
         </div>
+
     </div>
     
 </template>
@@ -71,6 +73,7 @@ export default {
     display: flex;
     background-color: #f9f9f9;
     width: 100%;
+    padding-bottom: 20px;
 }
 
 .image {

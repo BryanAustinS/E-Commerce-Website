@@ -51,7 +51,7 @@ export default {
         .get(`/api/v1/products/${categorySlug}/`)
         .then((response) => {
           this.category = response.data;
-          document.title = this.category.name + ' - Ecommerce';
+          document.title = this.category.name + ' - URBANFIT';
         })
         .catch((error) => {
           console.log(error);

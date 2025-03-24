@@ -6,6 +6,8 @@
 
                 <p>Your order will be processed within 48 hours</p>
             </div>
+
+            <router-link to="/my-account" class="button has-background-black">Back to Home</router-link>
         </div>
     </div>
 
@@ -15,7 +17,7 @@
 export default {
     name: 'Success',
     mounted() {
-        document.title = 'Success | Ecommerce'
+        document.title = 'Success - URBANFIT'
         
         const paymentID = this.$route.query.paymentId
         const payerID = this.$route.query.PayerID
@@ -42,8 +44,10 @@ export default {
 
 <style scoped>
 .page-success {
-    margin: 20px;
+    padding: 20px;
     height: 500px;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 .title {
     font-size: 2.5rem;
@@ -52,5 +56,9 @@ export default {
 
 p {
     color: black;
+}
+
+button {
+    margin: 20px;
 }
 </style>
